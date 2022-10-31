@@ -42,6 +42,10 @@ $ npm run dev
 > In Next.js, you can run code at the Edge with Middleware, and soon with React
 > Server Components.
 
+> You should not fetch an API Route from getStaticProps or getStaticPaths.
+> Instead, write your server-side code directly in getStaticProps or
+> getStaticPaths (or call a helper function).
+
 ## References
 
 - Getting started with Next.js ~ <https://nextjs.org/learn/foundations/from-react-to-nextjs/getting-started-with-nextjs>
@@ -54,3 +58,11 @@ $ npm run dev
 - Examples ~ <https://nextjs.org/examples>
 - Next.js 13 ~ <https://nextjs.org/blog/next-13>
 - Static Generation with and without Data ~ <https://nextjs.org/learn/basics/data-fetching/with-data>
+- Writing Server-Side code ~ <https://nextjs.org/docs/basic-features/data-fetching/get-static-props#write-server-side-code-directly>
+- Similar example in TypeScript ~ <https://github.com/vercel/next.js/tree/canary/examples/blog-starter>
+
+Tutorial wrapup and tips:
+
+- getStaticProps details ~ <https://nextjs.org/learn/basics/data-fetching/getstaticprops-details>
+- Dynamic routes details ~ <https://nextjs.org/learn/basics/dynamic-routes/dynamic-routes-details>
+- API routes details ~ <https://nextjs.org/learn/basics/api-routes/api-routes-details>
