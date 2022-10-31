@@ -1,4 +1,4 @@
-Learning Next.js, one commit at a time.
+Learning Next.js, following <https://nextjs.org/learn>
 
 Start the dev server :
 ```
@@ -53,3 +53,4 @@ $ npm run dev
 - Routing ~ <https://nextjs.org/docs/routing/introduction>
 - Examples ~ <https://nextjs.org/examples>
 - Next.js 13 ~ <https://nextjs.org/blog/next-13>
+- Static Generation with and without Data ~ <https://nextjs.org/learn/basics/data-fetching/with-data>
