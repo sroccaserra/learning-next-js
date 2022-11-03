@@ -46,6 +46,13 @@ $ npm run dev
 > Instead, write your server-side code directly in getStaticProps or
 > getStaticPaths (or call a helper function).
 
+It looks like Plotly.js is not compatible with Server Side Rendering at this
+time, but it can be imported dynamically.
+
+- <https://github.com/plotly/react-plotly.js/issues/21>
+- <https://github.com/plotly/react-plotly.js/issues/272>
+- <https://github.com/aulneau/next.js-with-react-plotly.js>
+
 ## References
 
 - Getting started with Next.js ~ <https://nextjs.org/learn/foundations/from-react-to-nextjs/getting-started-with-nextjs>
