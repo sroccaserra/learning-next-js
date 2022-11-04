@@ -6,7 +6,7 @@ import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-type PostMetaData = {
+export type PostMetaData = {
   id: string,
   date: string,
   title: string,
@@ -45,7 +45,7 @@ export function getSortedPostsData() {
   });
 }
 
-type Params = {
+export type Params = {
   id: string,
 }
 
@@ -61,7 +61,7 @@ export function getAllPostIds(): {params: Params}[] {
   });
 }
 
-type PostData = {
+export type PostData = {
   id: string,
   title: string,
   date: string,

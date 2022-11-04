@@ -3,12 +3,14 @@ import Head from 'next/head';
 
 import Layout from '../../components/layout';
 import Date from '../../components/date';
-import { getAllPostIds, getPostData } from '../../lib/posts';
+import { getAllPostIds, getPostData, Params, PostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.css';
 
 const Plot = dynamic(import('react-plotly.js'), {ssr: false});
 
-export default function Post({postData}) {
+type StaticProps = {postData: PostData}
+
+export default function Post({postData}: StaticProps) {
   return (
     <Layout>
       <Head>
@@ -36,15 +38,20 @@ export default function Post({postData}) {
   );
 }
 
-export async function getStaticPaths() {
-  const paths = getAllPostIds();
+type StaticPaths = {
+  paths: {params: Params}[],
+  fallback: boolean
+};
+
+export async function getStaticPaths(): Promise<StaticPaths> {
+  const paths: {params: Params}[] = getAllPostIds();
   return {
     paths,
     fallback: false,
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: {params: Params}): Promise<{props: StaticProps}> {
   const postData = await getPostData(params.id);
 
   return {
