@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 import Layout from '../../components/layout';
 import Date from '../../components/date';
@@ -8,9 +9,9 @@ import utilStyles from '../../styles/utils.module.css';
 
 const Plot = dynamic(import('react-plotly.js'), {ssr: false});
 
-type StaticProps = {postData: PostData}
+type Props = {postData: PostData}
 
-export default function Post({postData}: StaticProps) {
+export default function Post({postData}: Props) {
   return (
     <Layout>
       <Head>
@@ -38,12 +39,7 @@ export default function Post({postData}: StaticProps) {
   );
 }
 
-type StaticPaths = {
-  paths: {params: Params}[],
-  fallback: boolean
-};
-
-export async function getStaticPaths(): Promise<StaticPaths> {
+export const getStaticPaths: GetStaticPaths<Params> = () => {
   const paths: {params: Params}[] = getAllPostIds();
   return {
     paths,
@@ -51,7 +47,10 @@ export async function getStaticPaths(): Promise<StaticPaths> {
   };
 }
 
-export async function getStaticProps({ params }: {params: Params}): Promise<{props: StaticProps}> {
+export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+  if (!params) {
+    throw Error('Missing params');
+  }
   const postData = await getPostData(params.id);
 
   return {
