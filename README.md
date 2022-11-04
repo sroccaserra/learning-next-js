@@ -53,6 +53,12 @@ time, but it can be imported dynamically.
 - <https://github.com/plotly/react-plotly.js/issues/272>
 - <https://github.com/aulneau/next.js-with-react-plotly.js>
 
+Next.js helps to configure TypeScript: `touch tsconfig.json` and Next.js will
+automatically install dependencies and generate a sound configuration for the
+project. Do not version & commit the `next-env.d.ts`.
+
+- <https://nextjs.org/docs/basic-features/typescript>
+
 ## References
 
 - Getting started with Next.js ~ <https://nextjs.org/learn/foundations/from-react-to-nextjs/getting-started-with-nextjs>
