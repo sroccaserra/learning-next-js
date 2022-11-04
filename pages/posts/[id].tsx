@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { FunctionComponent } from 'react';
 
 import Layout from '../../components/layout';
 import Date from '../../components/date';
@@ -9,9 +10,9 @@ import utilStyles from '../../styles/utils.module.css';
 
 const Plot = dynamic(import('react-plotly.js'), {ssr: false});
 
-type Props = {postData: PostData}
+type Props = {postData: PostData};
 
-export default function Post({postData}: Props) {
+const Post: FunctionComponent<Props> = ({postData}) => {
   return (
     <Layout>
       <Head>
@@ -37,7 +38,8 @@ export default function Post({postData}: Props) {
       </article>
     </Layout>
   );
-}
+};
+export default Post;
 
 export const getStaticPaths: GetStaticPaths<Params> = () => {
   const paths: {params: Params}[] = getAllPostIds();

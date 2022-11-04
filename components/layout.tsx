@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FunctionComponent } from 'react';
+
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 
 const name = 'Toto';
 export const siteTitle = 'Next.js Sample Website';
@@ -12,7 +14,7 @@ type Props = {
   home?: boolean,
 }
 
-export default function Layout({ children, home=false }: Props) {
+const Layout: FunctionComponent<Props> = ({ children, home=false }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -75,4 +77,5 @@ export default function Layout({ children, home=false }: Props) {
       )}
     </div>
   );
-}
+};
+export default Layout;
