@@ -68,7 +68,7 @@ export type PostData = {
   contentHtml: string,
 }
 
-export async function getPostData(id): Promise<PostData> {
+export async function getPostData(id: string): Promise<PostData> {
   const fullPath: string = path.join(postsDirectory, `${id}.md`);
   const fileContents: string = fs.readFileSync(fullPath, 'utf8');
 
